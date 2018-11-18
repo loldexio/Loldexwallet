@@ -1,18 +1,15 @@
 <template>
   <div id="app">
-    <router-view name="header">
-        
-    </router-view>
-    <transition name="fade" mode="out-in">
-      <router-view>
-        
-      </router-view>
-    </transition>
-    <router-view name="footer">
-        
-    </router-view>
+    <router-view></router-view>
   </div>
 </template>
 
+<script>
+export default {
+  name: 'app'
+}
+</script>
+
 <style lang="scss">
+
 </style>

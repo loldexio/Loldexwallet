@@ -3,26 +3,16 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 
-import headerComponent from "../components/dashboard/layout/header";
-import contentComponent from "../components/dashboard/layout/content";
-import footerComponent from "../components/dashboard/layout/footer";
-import testComponent from "../components/dashboard/layout/test";
+import DashboardComponent from "@/components/dashboard/Dashboard";
 
 export default new Router({
   routes: [
     {
       path: '/',
-      components: {
-        default: contentComponent,
-        header: headerComponent,
-        footer: footerComponent
-      },
-      children: [
-        {
-          path: '/test',
-          component: testComponent
-        }
-      ]
+      redirect: "/dashboard"
+    }, {
+      path: '/dashboard',
+      component: DashboardComponent
     }
   ]
 })

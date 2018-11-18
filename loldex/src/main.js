@@ -1,10 +1,12 @@
-import Vue from 'vue';
-import App from './App.vue';
-import router from './router/index';
-import store from './store/index';
+import Vue from 'vue'
+import App from './App'
+import router from './router'
+import store from './store'
 
-window.vueApp = new Vue({
+window.posApp = new Vue({
+  el: '#app',
   router,
   store,
-  render: h => h(App)
-}).$mount('#app');
+  components: { App },
+  template: '<app/>'
+})
