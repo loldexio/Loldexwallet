@@ -1,25 +1,26 @@
 <template>
-    <div class="dashboard">
+  <div class="dashboard">
+    <div class="header">
         <dashboard-header></dashboard-header>
-        <dashboard-body></dashboard-body>
     </div>
+    <div class="body"></div>
+  </div>
 </template>
 
 <script>
-    import DashboardHeaderComponent from "@/components/dashboard/DashboardHeader";
-    import DashboardBodyComponent from "@/components/dashboard/DashboardBody";
-
+    import DashboardHeader from "./DashboarHeader";
     export default {
-        name: 'dashboard',
+        name: "dashboard",
         components: {
-            "dashboard-header": DashboardHeaderComponent,
-            "dashboard-body": DashboardBodyComponent
+            DashboardHeader
         }
     }
 </script>
 
 <style lang="scss">
     .dashboard {
-
+        .header {
+            height: $header-height
+        }
     }
 </style>

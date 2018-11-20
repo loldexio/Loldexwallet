@@ -5,11 +5,19 @@
 </template>
 
 <script>
-export default {
-  name: 'app'
-}
+  export default {
+    name: "app"   
+  }
 </script>
 
-<style lang="scss">
 
+<style lang="scss">
+  body {
+    margin: 0;
+  }
+
+  #app {
+    font-size: $global-font-size;
+    font-family: "Open Sans", sans-serif;
+  }
 </style>
