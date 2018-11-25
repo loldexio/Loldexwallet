@@ -14,9 +14,14 @@ function getTokenList(state) {
     return state.tokenList;
 }
 
+function getVolumeList(state) {
+    return state.volumeList;
+}
+
 export default {
     getTradeTokenList,
     getLanguageList,
     getSmartContractList,
-    getTokenList
+    getTokenList,
+    getVolumeList
 }

@@ -17,9 +17,14 @@ async function fetchTokenList({commit}, payload) {
     commit(mType.FETCH_TOKEN_LIST, dump.tokenList);
 }
 
+async function fetchVolumeList({commit}, payload) {
+    commit(mType.FETCH_VOLUME_LIST, dump.volumeList)
+}
+
 export default {
     fetchTradeTokenList,
     fetchLanguageList,
     fetchSmartContract,
-    fetchTokenList
+    fetchTokenList,
+    fetchVolumeList
 }

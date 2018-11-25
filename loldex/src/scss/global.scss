@@ -1,4 +1,4 @@
-$global-font-size: 13px;
+// ----------- variable -----------
 $body-background-color: #1e2b34;
 
 // dashboard header
@@ -22,16 +22,36 @@ $body-panel-header-font-size: 16px;
 $body-panel-header-background-color: #2f3d45;
 $body-panel-header-border-bottom-color: #18252e;
 
-// scss
+// volume table
+$volume-table-font-size: 90%;
+$volume-table-color: #fff;
+$volume-table-hover-background-color: #1b2831;
+
+
+// ----------- scss -----------
 .verticle-center {
     display: flex;
     align-items: center;
+}
+
+body {
+    margin: 0;
+    font-size: 13px;
+    font-family: "Open Sans", sans-serif;
+}
+
+body,
+html {
+    width: 100%;
+    height: 100%;
 }
 
 // custom bootstrap vue
 .tabs {
     display: flex;
     flex-direction: column;
+    width: 100%;
+    min-height: 100%;
 
     .tab-header {
         overflow: hidden;
@@ -67,7 +87,7 @@ $body-panel-header-border-bottom-color: #18252e;
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    
+
 
                     &.active {
                         color: #fff;
@@ -81,5 +101,31 @@ $body-panel-header-border-bottom-color: #18252e;
 
     .tab-body {
         flex: 1 1 auto;
+    }
+}
+
+input.form-control {
+    width: 100%;
+    height: 100%;
+    padding: 8px 5px 8px 10px;
+    border: 1px solid #565f66;
+    border-radius: 2px;
+    font-size: 14px;
+    font-weight: normal;
+    color: #fff;
+    text-align: left;
+    outline: 0;
+    box-shadow: none;
+    background-color: #404a52;
+    transition: border-color ease-in-out .15s,
+        box-shadow ease-in-out .15s;
+    background-image: none;
+
+    &:focus,
+    &:hover {
+        border-color: #66afe9;
+        outline: 0;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
     }
 }

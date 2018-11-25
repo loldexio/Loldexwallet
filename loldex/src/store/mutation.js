@@ -12,5 +12,8 @@ export default {
     },
     [mType.FETCH_TOKEN_LIST]: (state, payload) => {
         state.tokenList = payload
+    },
+    [mType.FETCH_VOLUME_LIST]: (state, payload) => {
+        state.volumeList = payload;
     }
 }

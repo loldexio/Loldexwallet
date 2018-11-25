@@ -32,7 +32,7 @@
 <style lang="scss">
     .body-panel {
         width: 100%;
-        height: 100%;
+        min-height: 100%;
         display: flex;
         flex-direction: column;
         
@@ -50,6 +50,7 @@
 
         .body-panel__body {
             flex: 1 1 auto;
+            display: flex;
         }
     }
 </style>

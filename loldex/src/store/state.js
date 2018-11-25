@@ -2,5 +2,6 @@ export default {
     tradeTokenList: [],
     languageList: [],
     smartContractList: [],
-    tokenList: []
+    tokenList: [],
+    volumeList: []
 }

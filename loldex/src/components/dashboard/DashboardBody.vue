@@ -17,7 +17,10 @@
                 </div>
                 <div class="dashboard-body__item">
                     <body-panel :title="'Volume'">
-                    
+                        <volume-table
+                            :data = "volume"
+                        >
+                        </volume-table>
                     </body-panel>
                 </div>
             </div>
@@ -79,17 +82,28 @@
 
 <script>
     import BodyPanel from "../snippet/BodyPanel";
+    import VolumeTable from "../snippet/VolumeTable";
     export default {
         name: "dashboard-body",
         components: {
-            BodyPanel
+            BodyPanel,
+            VolumeTable
         },
         data: function() {
             return {};
         },
         computed: {
+            volume() {
+                return {
+                    row: this.$store.getters.getVolumeList,
+                    onClick: function(item, table) {
+                        alert(item.name);
+                    }
+                };
+            }
         },
         mounted: async function() {
+            await this.$store.dispatch("fetchVolumeList");
         }
     }
 </script>
@@ -98,6 +112,19 @@
     .dashboard-body {
         width: 100%;
         height: 100%;
+
+        ::-webkit-scrollbar, .scroll::-webkit-scrollbar {
+            width: 5px;
+            height: 5px;
+        }
+        ::-webkit-scrollbar-thumb, .scroll::-webkit-scrollbar-thumb {
+            background-color: #233540;
+            border: 1px solid #233540;
+            transition: all 0.2s ease-out;
+        }
+        ::-webkit-scrollbar-track, .scroll::-webkit-scrollbar-track {
+            background: #15232c;
+        }
 
         &.container-fluid,
         .row,
@@ -119,6 +146,8 @@
 
             .dashboard-body__item {
                 flex-grow: 1;
+                display: flex;
+                height: 50%;
             }
         }
     }

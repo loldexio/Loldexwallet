@@ -35,6 +35,49 @@ var dump = {
         title: "OxBTC",
         subTitle: "OxBitcoin",
         value: "OxBTC"
+    }],
+    volumeList: [{
+        name: "PPT",
+        value1: 0.013810036,
+        subName: "Populous Platform",
+        bid: 0.013000130,
+        ask: 0.013000130,
+        value2: 275.127
+    }, {
+        name: "OMG",
+        value1: 0.011990000,
+        subName: "OMGToken",
+        bid: 0.012869001,
+        ask: 0.011990000,
+        value2: 143.241
+    }, {
+        name: "PPT",
+        value1: 0.013810036,
+        subName: "Populous Platform",
+        bid: 0.013000130,
+        ask: 0.013000130,
+        value2: 275.127
+    }, {
+        name: "OMG",
+        value1: 0.011990000,
+        subName: "OMGToken",
+        bid: 0.012869001,
+        ask: 0.011990000,
+        value2: 143.241
+    }, {
+        name: "PPT",
+        value1: 0.013810036,
+        subName: "Populous Platform",
+        bid: 0.013000130,
+        ask: 0.013000130,
+        value2: 275.127
+    }, {
+        name: "OMG",
+        value1: 0.011990000,
+        subName: "OMGToken",
+        bid: 0.012869001,
+        ask: 0.011990000,
+        value2: 143.241
     }]
 }
 
