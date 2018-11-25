@@ -32,6 +32,7 @@
 
         .dashboard__body {
             height: calc(100% - #{$header-height});
+            background-color: $body-background-color;
         }
     }
 </style>

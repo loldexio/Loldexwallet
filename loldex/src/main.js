@@ -3,8 +3,11 @@ import App from './App.vue';
 import router from './router/index';
 import store from './store/index';
 import VueClickaway from "vue-clickaway";
+import BootstrapVue from 'bootstrap-vue';
 
-Vue.directive('click-away', VueClickaway.directive)
+Vue.use(BootstrapVue);
+
+Vue.directive('click-away', VueClickaway.directive);
 
 window.vueApp = new Vue({
   router,
