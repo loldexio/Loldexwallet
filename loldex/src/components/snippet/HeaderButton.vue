@@ -1,6 +1,6 @@
 <template>
     <div class="header-button">
-        <div class="header-button-wrapper" 
+        <div class="header-button-wrapper verticle-center" 
             @click="onClick"
         >
             <span class="header-button__icon header-button__icon--pre-icon" 
@@ -52,8 +52,6 @@
 
         .header-button-wrapper {
             height: 100%;
-            display : flex;
-            align-items : center;
             padding: 15px;
             font-weight: bold;
             cursor: pointer;

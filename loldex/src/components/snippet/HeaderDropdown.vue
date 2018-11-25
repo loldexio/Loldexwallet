@@ -1,6 +1,6 @@
 <template>
     <div class="header-dropdown">
-        <div class="header-dropdown__button" 
+        <div class="header-dropdown__button verticle-center" 
             :class="{ 'header-dropdown__button--active': toggle }" 
             @click="toggleMenu"
         >
@@ -46,17 +46,13 @@
         props: ["data"],
         data: function() {
             return {
-                toggle: false
+                toggle: false,
+                label: null
             }
         },
         computed: {
-            displayValue: {
-                get() {
-                    return this.data.displayValue;
-                },
-                set(newValue) {
-                    return this.data.displayValue = newValue;
-                }
+            displayValue() {
+                return this.label || this.data.displayValue;
             },
             posIcon() {
                 return this.data.posIcon === undefined ? '<i class="fas fa-caret-down" style="font-size: 0.7em;"></i>' : this.data.posIcon;
@@ -85,8 +81,6 @@
 
         .header-dropdown__button {
             height: 100%;
-            display : flex;
-            align-items : center;
             padding: 15px;
             font-weight: bold;
             cursor: pointer;

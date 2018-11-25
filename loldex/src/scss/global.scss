@@ -12,3 +12,18 @@ $header-dropdown-item-hover-background-color: #f5f5f5;
 $header-dropdown-title-color: #15232c;
 $header-dropdown-sub-title-color: #777;
 $header-dropdown-separator-color: #e5e5e5;
+
+// dashboard body
+// body panel
+$body-panel-header-height: 38px;
+$body-panel-header-color: #fff;
+$body-panel-header-font-size: 16px;
+$body-panel-header-background-color: #2f3d45;
+$body-panel-header-border-bottom-color: #18252e;
+
+// scss
+.verticle-center {
+    display: flex;
+    align-items: center;
+}
+

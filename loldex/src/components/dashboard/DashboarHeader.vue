@@ -41,12 +41,13 @@
             HeaderButton
         },
         data: function() {
+            var self = this;
             return {
                 aboutButton: {
                     label: "About ForkDelta",
                     preIcon: '<i class="fas fa-info-circle"></i>',
                     onClick() {
-                        this.$router.push('/about');
+                        self.$router.push('/about');
                     }
                 }
             }
@@ -60,7 +61,7 @@
                         {
                             option: this.$store.getters.getTradeTokenList,
                             onSelect(item, dropdown) {
-                                dropdown.displayValue = item.title;
+                                dropdown.label = item.value;
                                 dropdown.close();
                             }
                         }
@@ -105,7 +106,7 @@
                         {
                             option: this.$store.getters.getLanguageList,
                             onSelect(item, dropdown) {
-                                dropdown.displayValue = item.title;
+                                dropdown.label = item.title;
                                 dropdown.close();
                             }
                         }
