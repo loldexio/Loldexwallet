@@ -18,6 +18,7 @@
         data: function() {
             return {
                 option: {
+                    theme: "maximized",
                     colors:['red','green'],
                     legend: "none",
                     backgroundColor: "transparent",

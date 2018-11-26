@@ -21,5 +21,14 @@ export default {
     },
     [mType.FETCH_DEPTH_CHART_DATA]: (state, payload) => {
         state.depthChartData = payload;
+    },
+    [mType.FETCH_TRADE_DATA]: (state, payload) => {
+        state.tradeData = payload;
+    },
+    [mType.FETCH_ORDER_DATA]: (state, payload) => {
+        state.orderData = payload;
+    },
+    [mType.FETCH_FUND_DATA]: (state, payload) => {
+        state.fundData = payload;
     }
 }

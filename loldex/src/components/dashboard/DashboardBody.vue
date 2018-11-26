@@ -61,7 +61,7 @@
                     </panel>
                 </div>
                 <div class="dashboard-body__item">
-                    <panel :title="'New Order'">
+                    <panel :title="'My Transactions'">
                         <b-tabs nav-wrapper-class="tab-header">
                             <b-tab title="Important" active>
                                 <text-box>
@@ -87,10 +87,19 @@
                                 </text-box>
                             </b-tab>
                             <b-tab title="Trades">
+                                <custom-table
+                                    :data="transaction.trade"
+                                ></custom-table>
                             </b-tab>
                             <b-tab title="Orders">
+                                <custom-table
+                                    :data="transaction.order"
+                                ></custom-table>
                             </b-tab>
                             <b-tab title="Funds">
+                                <custom-table
+                                    :data="transaction.fund"
+                                ></custom-table>
                             </b-tab>
                         </b-tabs>
                     </panel>
@@ -113,6 +122,7 @@
     import PriceChart from "../snippet/PriceChart";
     import DepthChart from "../snippet/DepthChart";
     import TextBox from "../snippet/TextBox";
+    import CustomTable from "../snippet/CustomTable";
     export default {
         name: "dashboard-body",
         components: {
@@ -120,7 +130,8 @@
             VolumeTable,
             PriceChart,
             DepthChart,
-            TextBox
+            TextBox,
+            CustomTable
         },
         data: function() {
             return {};
@@ -143,12 +154,89 @@
                         data: this.$store.getters.getDepthChartData
                     }
                 }
+            },
+            transaction() {
+                return {
+                    trade: {
+                        col: [
+                            {
+                                label: "Transaction",
+                                prop: "transaction"
+                            },
+                            {
+                                label: "Type",
+                                prop: "type"
+                            },
+                            {
+                                label: "10MT",
+                                prop: "token"
+                            },
+                            {
+                                label: "ETH",
+                                prop: "eth"
+                            },
+                            {
+                                label: "10MT/ETH",
+                                prop: "ratio"
+                            }
+                        ],
+                        row: this.$store.getters.getTradeData,
+                        note: "Note: ForkDelta will only show recent transactions."
+                    },
+                    order: {
+                        col: [
+                            {
+                                label: "10MT/ETH",
+                                prop: "ratio"
+                            },
+                            {
+                                label: "Available Volume",
+                                prop: "availableVolume"
+                            },
+                            {
+                                label: "Expire in",
+                                prop: "expireIn"
+                            },
+                            {
+                                label: "Cancel",
+                                prop: "cancel"
+                            }
+                        ],
+                        row: this.$store.getters.getOrderData
+                    },
+                    fund: {
+                        col: [
+                            {
+                                label: "Transaction",
+                                prop: "transaction"
+                            },
+                            {
+                                label: "Type",
+                                prop: "type"
+                            },
+                            {
+                                label: "10MT",
+                                prop: "token"
+                            },
+                            {
+                                label: "ETH",
+                                prop: "eth"
+                            }
+                        ],
+                        row: this.$store.getters.getFundData,
+                        note: "Note: ForkDelta will only show recent transactions."
+                    }
+                }
             }
+
         },
         mounted: async function() {
             await this.$store.dispatch("fetchVolumeList");
             await this.$store.dispatch("fetchPriceChartData");
             await this.$store.dispatch("fetchDepthChartData");
+            await this.$store.dispatch("fetchTradeData");
+            await this.$store.dispatch("fetchOrderData");
+            await this.$store.dispatch("fetchFundData");
         }
     }
 </script>

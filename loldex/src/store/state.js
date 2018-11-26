@@ -5,5 +5,8 @@ export default {
     tokenList: [],
     volumeList: [],
     priceChartData: [],
-    depthChartData: []
+    depthChartData: [],
+    tradeData: [],
+    fundData: [],
+    orderData: []
 }

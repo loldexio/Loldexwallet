@@ -26,6 +26,18 @@ function getDepthChartData(state) {
     return state.depthChartData;
 }
 
+function getTradeData(state) {
+    return state.tradeData;
+}
+
+function getFundData(state) {
+    return state.fundData;
+}
+
+function getOrderData(state) {
+    return state.orderData;
+}
+
 export default {
     getTradeTokenList,
     getLanguageList,
@@ -33,5 +45,8 @@ export default {
     getTokenList,
     getVolumeList,
     getPriceChartData,
-    getDepthChartData
+    getDepthChartData,
+    getTradeData,
+    getFundData,
+    getOrderData
 }

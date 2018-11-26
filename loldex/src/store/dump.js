@@ -92,7 +92,26 @@ var dump = {
         ['2014',  1170,      460],
         ['2015',  660,       1120],
         ['2016',  1030,      540]
-    ]
+    ],
+    tradeData: [{
+        transaction: undefined,
+        type: undefined,
+        token: undefined,
+        eth: undefined,
+        ratio: undefined,
+    }],
+    orderData: [{
+        ratio: undefined,
+        availableVolume: undefined,
+        expiresIn: undefined,
+        cancel: undefined
+    }],
+    fundData: [{
+        transaction: undefined,
+        type: undefined,
+        token: undefined,
+        eth: undefined
+    }]
 }
 
 export default dump;

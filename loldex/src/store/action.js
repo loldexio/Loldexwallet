@@ -29,6 +29,18 @@ async function fetchDepthChartData({commit}, payload) {
     commit(mType.FETCH_DEPTH_CHART_DATA, dump.depthChartData);
 }
 
+async function fetchTradeData({commit}, payload) {
+    commit(mType.FETCH_TRADE_DATA, dump.tradeData);
+}
+
+async function fetchOrderData({commit}, payload) {
+    commit(mType.FETCH_ORDER_DATA, dump.orderData);
+}
+
+async function fetchFundData({commit}, payload) {
+    commit(mType.FETCH_FUND_DATA, dump.fundData);
+}
+
 export default {
     fetchTradeTokenList,
     fetchLanguageList,
@@ -36,5 +48,8 @@ export default {
     fetchTokenList,
     fetchVolumeList,
     fetchPriceChartData,
-    fetchDepthChartData
+    fetchDepthChartData,
+    fetchTradeData,
+    fetchOrderData,
+    fetchFundData
 }

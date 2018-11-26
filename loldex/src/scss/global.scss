@@ -52,6 +52,30 @@ html {
     height: 100%;
 }
 
+.table {
+    font-size: 90%;
+}
+.table--collapse {
+    border-collapse: collapse; 
+}
+.table__head {
+    tr {
+        height: 25px;
+        border-bottom: 1px solid #666666;
+        vertical-align: bottom;
+
+        th {
+            color: #fff;
+        }
+    }
+}
+.table__row {
+    td {
+        color: white;
+        text-align: center;
+    }
+}
+
 // custom bootstrap vue
 .tabs {
     display: flex;

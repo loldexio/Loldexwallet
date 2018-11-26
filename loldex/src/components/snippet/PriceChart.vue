@@ -17,6 +17,7 @@
         props: ["data"],
         data: function() {
             return {
+                theme: "maximized",
                 option: {
                     legend: "none",
                     colors: ['#087037'],
