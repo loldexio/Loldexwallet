@@ -2,6 +2,7 @@
     <div class="price-chart">
         <div class="price-chart__content">
             <GChart
+                :resizeDebounce="500"
                 type="ScatterChart"
                 :data="data"
                 :options="option"
@@ -17,7 +18,6 @@
         data: function() {
             return {
                 option: {
-                    theme: 'maximized',
                     legend: "none",
                     colors: ['#087037'],
                     backgroundColor: "transparent",

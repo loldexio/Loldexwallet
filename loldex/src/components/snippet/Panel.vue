@@ -36,7 +36,7 @@
         flex-direction: column;
         
         .panel__header {
-            flex: 0 1 $panel-header-height;
+            flex: 0 0 $panel-header-height;
             width: 100%;
             padding: 8px;
             background: $panel-header-background-color;

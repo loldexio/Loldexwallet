@@ -2,6 +2,7 @@
     <div class="depth-chart">
         <div class="depth-chart__content">
             <GChart
+                :resizeDebounce="500"
                 type="AreaChart"
                 :data="data"
                 :options="option"
@@ -17,7 +18,6 @@
         data: function() {
             return {
                 option: {
-                    theme: 'maximized',
                     colors:['red','green'],
                     legend: "none",
                     backgroundColor: "transparent",

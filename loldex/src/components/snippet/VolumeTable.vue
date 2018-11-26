@@ -74,7 +74,7 @@
         width: 100%;
 
         .volume-table__search {
-            flex: 0 1 36px;
+            flex: 0 0 36px;
         }
 
         .volume-table__content {
