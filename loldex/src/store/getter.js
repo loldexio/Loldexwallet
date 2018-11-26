@@ -18,10 +18,20 @@ function getVolumeList(state) {
     return state.volumeList;
 }
 
+function getPriceChartData(state) {
+    return state.priceChartData;
+}
+
+function getDepthChartData(state) {
+    return state.depthChartData;
+}
+
 export default {
     getTradeTokenList,
     getLanguageList,
     getSmartContractList,
     getTokenList,
-    getVolumeList
+    getVolumeList,
+    getPriceChartData,
+    getDepthChartData
 }

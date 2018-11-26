@@ -178,6 +178,7 @@
         height: 100%;
         border-bottom: 1px solid black;
         display: flex;
+        align-items: stretch;
 
         ::-webkit-scrollbar {
             width: 5px;
@@ -196,13 +197,11 @@
         }
 
         .dashboard-header__logo {
-            height: 100%;
             .logo {
                 height: 100%;
             }
         }
         .dashboard-header__content {
-            height: 100%;
             flex: 1 1 auto;
             .nav-menu {
                 padding: 0;

@@ -4,8 +4,11 @@ import router from './router/index';
 import store from './store/index';
 import VueClickaway from "vue-clickaway";
 import BootstrapVue from 'bootstrap-vue';
+import VueGoogleChart from "vue-google-charts";
 
 Vue.use(BootstrapVue);
+
+Vue.use(VueGoogleChart);
 
 Vue.directive('click-away', VueClickaway.directive);
 

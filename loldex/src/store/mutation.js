@@ -15,5 +15,11 @@ export default {
     },
     [mType.FETCH_VOLUME_LIST]: (state, payload) => {
         state.volumeList = payload;
+    },
+    [mType.FETCH_PRICE_CHART_DATA]: (state, payload) => {
+        state.priceChartData = payload;
+    },
+    [mType.FETCH_DEPTH_CHART_DATA]: (state, payload) => {
+        state.depthChartData = payload;
     }
 }

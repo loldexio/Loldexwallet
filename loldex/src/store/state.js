@@ -3,5 +3,7 @@ export default {
     languageList: [],
     smartContractList: [],
     tokenList: [],
-    volumeList: []
+    volumeList: [],
+    priceChartData: [],
+    depthChartData: []
 }

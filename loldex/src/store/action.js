@@ -18,7 +18,15 @@ async function fetchTokenList({commit}, payload) {
 }
 
 async function fetchVolumeList({commit}, payload) {
-    commit(mType.FETCH_VOLUME_LIST, dump.volumeList)
+    commit(mType.FETCH_VOLUME_LIST, dump.volumeList);
+}
+
+async function fetchPriceChartData({commit}, payload) {
+    commit(mType.FETCH_PRICE_CHART_DATA, dump.priceChartData);
+}
+
+async function fetchDepthChartData({commit}, payload) {
+    commit(mType.FETCH_DEPTH_CHART_DATA, dump.depthChartData);
 }
 
 export default {
@@ -26,5 +34,7 @@ export default {
     fetchLanguageList,
     fetchSmartContract,
     fetchTokenList,
-    fetchVolumeList
+    fetchVolumeList,
+    fetchPriceChartData,
+    fetchDepthChartData
 }

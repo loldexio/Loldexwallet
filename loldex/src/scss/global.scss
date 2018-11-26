@@ -16,11 +16,11 @@ $header-dropdown-separator-color: #e5e5e5;
 
 // dashboard body
 // body panel
-$body-panel-header-height: 38px;
-$body-panel-header-color: #fff;
-$body-panel-header-font-size: 16px;
-$body-panel-header-background-color: #2f3d45;
-$body-panel-header-border-bottom-color: #18252e;
+$panel-header-height: 38px;
+$panel-header-color: #fff;
+$panel-header-font-size: 16px;
+$panel-header-background-color: #2f3d45;
+$panel-header-border-bottom-color: #18252e;
 
 // volume table
 $volume-table-font-size: 90%;
@@ -51,7 +51,6 @@ html {
     display: flex;
     flex-direction: column;
     width: 100%;
-    min-height: 100%;
 
     .tab-header {
         overflow: hidden;
@@ -68,11 +67,10 @@ html {
             flex-grow: 1;
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: stretch;
 
             .nav-item {
                 width: 100%;
-                height: 100%;
                 cursor: pointer;
 
                 a {
@@ -99,8 +97,14 @@ html {
         }
     }
 
-    .tab-body {
+    .tab-content {
         flex: 1 1 auto;
+        display: flex;
+        align-items: stretch;
+
+        .tab-pane {
+            width: 100%;
+        }
     }
 }
 

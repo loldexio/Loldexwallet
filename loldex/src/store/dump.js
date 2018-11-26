@@ -78,7 +78,21 @@ var dump = {
         bid: 0.012869001,
         ask: 0.011990000,
         value2: 143.241
-    }]
+    }],
+    priceChartData: [
+        ['Date', 'Price'],
+        [ new Date(2018, 11, 13), 0.13],
+        [ new Date(2018, 11, 14), 0.14],
+        [ new Date(2018, 11, 15), 0.15],
+        [ new Date(2018, 11, 16), 0.16],
+    ],
+    depthChartData: [
+        ['Year', 'Sales', 'Expenses'],
+        ['2013',  1000,      400],
+        ['2014',  1170,      460],
+        ['2015',  660,       1120],
+        ['2016',  1030,      540]
+    ]
 }
 
 export default dump;

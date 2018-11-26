@@ -4,7 +4,7 @@
             <!-- col 1 -->
             <div class="col-md-3 dashboard-body__col">
                 <div class="dashboard-body__item">
-                    <body-panel :title="'Balance'">
+                    <panel :title="'Balance'">
                         <b-tabs nav-wrapper-class="tab-header">
                             <b-tab title="Deposit" active>
                             </b-tab>
@@ -13,49 +13,55 @@
                             <b-tab title="Transfer">
                             </b-tab>
                         </b-tabs>
-                    </body-panel>
+                    </panel>
                 </div>
                 <div class="dashboard-body__item">
-                    <body-panel :title="'Volume'">
+                    <panel :title="'Volume'">
                         <volume-table
                             :data = "volume"
                         >
                         </volume-table>
-                    </body-panel>
+                    </panel>
                 </div>
             </div>
             <!-- col 2 -->
             <div class="col-md-2 dashboard-body__col">
                 <div class="dashboard-body__item">
-                    <body-panel :title="'Order Book'">
+                    <panel :title="'Order Book'">
                         
-                    </body-panel>
+                    </panel>
                 </div>
                 <div class="dashboard-body__item">
-                    <body-panel :title="'New Order'">
+                    <panel :title="'New Order'">
                         <b-tabs nav-wrapper-class="tab-header">
                             <b-tab title="Buy" active>
                             </b-tab>
                             <b-tab title="Sell">
                             </b-tab>
                         </b-tabs>
-                    </body-panel>
+                    </panel>
                 </div>
             </div>
             <!-- col 3 -->
             <div class="col-md-4 dashboard-body__col">
                 <div class="dashboard-body__item">
-                    <body-panel :title="'Order Book'">
+                    <panel :title="'Price Chart'">
                         <b-tabs nav-wrapper-class="tab-header">
                             <b-tab title="Price" active>
+                                <price-chart
+                                    :data="orderBook.price.data"
+                                ></price-chart>
                             </b-tab>
                             <b-tab title="Depth">
+                                <depth-chart
+                                    :data="orderBook.depth.data"
+                                ></depth-chart>
                             </b-tab>
                         </b-tabs>
-                    </body-panel>
+                    </panel>
                 </div>
                 <div class="dashboard-body__item">
-                    <body-panel :title="'New Order'">
+                    <panel :title="'New Order'">
                         <b-tabs nav-wrapper-class="tab-header">
                             <b-tab title="Important" active>
                             </b-tab>
@@ -66,14 +72,14 @@
                             <b-tab title="Funds">
                             </b-tab>
                         </b-tabs>
-                    </body-panel>
+                    </panel>
                 </div>
             </div>
             <!-- col 4 -->
             <div class="col-md-3 dashboard-body__col">
                 <div class="dashboard-body__item">
-                    <body-panel :title="'Trades'">
-                    </body-panel>
+                    <panel :title="'Trades'">
+                    </panel>
                 </div>
             </div>
         </div>
@@ -81,13 +87,17 @@
 </template>
 
 <script>
-    import BodyPanel from "../snippet/BodyPanel";
+    import Panel from "../snippet/Panel";
     import VolumeTable from "../snippet/VolumeTable";
+    import PriceChart from "../snippet/PriceChart";
+    import DepthChart from "../snippet/DepthChart";
     export default {
         name: "dashboard-body",
         components: {
-            BodyPanel,
-            VolumeTable
+            Panel,
+            VolumeTable,
+            PriceChart,
+            DepthChart
         },
         data: function() {
             return {};
@@ -100,10 +110,22 @@
                         alert(item.name);
                     }
                 };
+            },
+            orderBook() {
+                return {
+                    price: {
+                        data: this.$store.getters.getPriceChartData
+                    },
+                    depth: {
+                        data: this.$store.getters.getDepthChartData
+                    }
+                }
             }
         },
         mounted: async function() {
             await this.$store.dispatch("fetchVolumeList");
+            await this.$store.dispatch("fetchPriceChartData");
+            await this.$store.dispatch("fetchDepthChartData");
         }
     }
 </script>
@@ -147,6 +169,7 @@
             .dashboard-body__item {
                 flex-grow: 1;
                 display: flex;
+                align-items: stretch;
                 height: 50%;
             }
         }

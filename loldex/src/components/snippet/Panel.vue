@@ -1,9 +1,9 @@
 <template>
-    <div class="body-panel">
-        <div class="body-panel__header verticle-center">
+    <div class="panel">
+        <div class="panel__header verticle-center">
             <span v-html="title"></span>
         </div>
-        <div class="body-panel__body">
+        <div class="panel__body">
             <slot>
             </slot>
         </div>
@@ -12,7 +12,7 @@
 
 <script>
     export default {
-        name: "body-panel",
+        name: "panel",
         props: {
             title: {
                 type: String,
@@ -30,27 +30,27 @@
 </script>
 
 <style lang="scss">
-    .body-panel {
+    .panel {
         width: 100%;
-        min-height: 100%;
         display: flex;
         flex-direction: column;
         
-        .body-panel__header {
-            flex: 0 1 $body-panel-header-height;
+        .panel__header {
+            flex: 0 1 $panel-header-height;
             width: 100%;
             padding: 8px;
-            background: $body-panel-header-background-color;
-            font-size: $body-panel-header-font-size;
+            background: $panel-header-background-color;
+            font-size: $panel-header-font-size;
             font-weight: bold;
             text-transform: capitalize;
-            color: $body-panel-header-color;
-            border-bottom: 2px solid $body-panel-header-border-bottom-color;
+            color: $panel-header-color;
+            border-bottom: 2px solid $panel-header-border-bottom-color;
         }
 
-        .body-panel__body {
+        .panel__body {
             flex: 1 1 auto;
             display: flex;
+            align-items: stretch;
         }
     }
 </style>
