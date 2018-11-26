@@ -164,13 +164,12 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;  
-            flex-basis: 50%;  
 
             .dashboard-body__item {
                 flex-grow: 1;
                 display: flex;
                 align-items: stretch;
-                height: 50%;
+                flex-basis: 50%;  
             }
         }
     }
