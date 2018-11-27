@@ -59,24 +59,33 @@ html {
     border-collapse: collapse; 
 }
 .table__head {
-    tr {
-        height: 25px;
-        border-bottom: 1px solid #666666;
-        vertical-align: bottom;
+    height: 25px;
+    border-bottom: 1px solid #666666;
+    vertical-align: bottom;
 
-        th {
-            color: #fff;
-        }
+    &.table__head--partition {
+        border-top: 1px solid #666;
+        border-bottom: 1px solid #666;
+        vertical-align: middle;
+        font-weight: bold;
+    }
+    th, 
+    td {
+        color: #fff;
+        text-align: center;
     }
 }
 .table__row {
     &:hover {
         background-color: #1b2831;
     }
+    &.table__row--partition {
+        cursor: pointer;
+    }
     td {
         color: white;
         text-align: center;
-        
+
         a {
             color: white;
         }

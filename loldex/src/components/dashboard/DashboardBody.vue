@@ -28,7 +28,9 @@
             <div class="col-md-2 dashboard-body__col">
                 <div class="dashboard-body__item">
                     <panel :title="'Order Book'">
-                        
+                        <partition-table
+                            :data="orderBook"
+                        ></partition-table>
                     </panel>
                 </div>
                 <div class="dashboard-body__item">
@@ -49,12 +51,12 @@
                         <b-tabs nav-wrapper-class="tab-header">
                             <b-tab title="Price" active>
                                 <price-chart
-                                    :data="orderBook.price.data"
+                                    :data="priceChart.price.data"
                                 ></price-chart>
                             </b-tab>
                             <b-tab title="Depth">
                                 <depth-chart
-                                    :data="orderBook.depth.data"
+                                    :data="priceChart.depth.data"
                                 ></depth-chart>
                             </b-tab>
                         </b-tabs>
@@ -126,6 +128,7 @@
     import DepthChart from "../snippet/DepthChart";
     import TextBox from "../snippet/TextBox";
     import CustomTable from "../snippet/CustomTable";
+    import PartitionTable from "../snippet/PartitionTable";
     export default {
         name: "dashboard-body",
         components: {
@@ -134,7 +137,8 @@
             PriceChart,
             DepthChart,
             TextBox,
-            CustomTable
+            CustomTable,
+            PartitionTable
         },
         data: function() {
             return {};
@@ -148,7 +152,7 @@
                     }
                 };
             },
-            orderBook() {
+            priceChart() {
                 return {
                     price: {
                         data: this.$store.getters.getPriceChartData
@@ -258,6 +262,40 @@
                     ],
                     row: this.$store.getters.getTradeList,
                 }
+            },
+            orderBook() {
+                return {
+                    col: [
+                        {
+                            label: "DAI/ETH",
+                            prop: "ratio",
+                            class: (row) => {
+                                return {
+                                    "table__td--green": !!(row.type == "buy"),
+                                    "table__td--red": !!(row.type == "sell")
+                                }
+                            }
+                        },
+                        {
+                            label: "DAI",
+                            prop: "token"
+                        },
+                        {
+                            label: "ETH",
+                            prop: "eth"
+                        }
+                    ],
+                    row: this.$store.getters.getOrderBookList,
+                    partition: (row) => {
+                        return !!(row.type == "sell");
+                    },
+                    topOnClick: (col, row) => {
+                        return alert("Buy")
+                    },
+                    bottomOnClick: (col, row) => {
+                        return alert("Sell")
+                    }
+                }
             }
 
         },
@@ -269,6 +307,7 @@
             await this.$store.dispatch("fetchOrderData");
             await this.$store.dispatch("fetchFundData");
             await this.$store.dispatch("fetchTradeList");
+            await this.$store.dispatch("fetchOrderBookList");
         }
     }
 </script>

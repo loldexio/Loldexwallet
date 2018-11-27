@@ -9,5 +9,6 @@ export default {
     tradeData: [],
     fundData: [],
     orderData: [],
-    tradeList: []
+    tradeList: [],
+    orderBookList: []
 }

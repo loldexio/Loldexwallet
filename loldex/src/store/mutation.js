@@ -33,5 +33,8 @@ export default {
     },
     [mType.FETCH_TRADE_LIST]: (state, payload) => {
         state.tradeList = payload;
+    },
+    [mType.FETCH_ORDER_BOOK_LIST]: (state, payload) => {
+        state.orderBookList = payload;
     }
 }

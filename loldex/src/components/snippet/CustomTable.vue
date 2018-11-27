@@ -2,8 +2,8 @@
     <div class="custom-table">
         <div class="custom-table-wrapper">
             <table class="table table--collapse">
-                <thead class="table__head">
-                    <tr>
+                <thead>
+                    <tr class="table__head">
                         <th 
                             v-for="(h, index) of data.col" 
                             :key="index"
