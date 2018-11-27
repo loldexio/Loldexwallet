@@ -52,6 +52,7 @@ html {
     height: 100%;
 }
 
+// table
 .table {
     font-size: 90%;
 }
@@ -63,25 +64,29 @@ html {
     border-bottom: 1px solid #666666;
     vertical-align: bottom;
 
+    th, td {
+        color: #fff;
+        text-align: center;
+    }
     &.table__head--partition {
         border-top: 1px solid #666;
         border-bottom: 1px solid #666;
         vertical-align: middle;
         font-weight: bold;
     }
-    th, 
-    td {
-        color: #fff;
-        text-align: center;
+    &.table__head--balance {
+        height: 25px;
+        border-bottom: 1px solid #666666;
+        vertical-align: bottom;
+
+        th, td {
+            padding: 8px;
+            line-height: 1.42857143;
+            vertical-align: top;
+        }
     }
 }
 .table__row {
-    &:hover {
-        background-color: #1b2831;
-    }
-    &.table__row--partition {
-        cursor: pointer;
-    }
     td {
         color: white;
         text-align: center;
@@ -96,8 +101,25 @@ html {
             color: green;
         }
     }
+    &:hover {
+        background-color: #1b2831;
+    }
+    &.table__row--partition {
+        cursor: pointer;
+    }
+    &.table__row--balance {
+        td {
+            padding: 8px;
+            line-height: 1.42857143;
+            vertical-align: top;
+
+            input {
+            }
+        }
+    }
 }
 
+// padding
 @for $i from 0 through 100 {
     .padding-#{$i} {
         padding: #{$i}px;
@@ -233,5 +255,8 @@ form {
     }
     &.btn--full-width {
         width: 100%;
+    }
+    &.btn-primary {
+        background-color: #3d84d6 !important;
     }
 }

@@ -7,10 +7,13 @@
                     <panel :title="'Balance'">
                         <b-tabs nav-wrapper-class="tab-header">
                             <b-tab title="Deposit" active>
+                                <deposit-form></deposit-form>
                             </b-tab>
                             <b-tab title="Withdraw">
+                                <withdraw-form></withdraw-form>
                             </b-tab>
                             <b-tab title="Transfer">
+                                <transfer-form></transfer-form>
                             </b-tab>
                         </b-tabs>
                     </panel>
@@ -133,6 +136,9 @@
     import PartitionTable from "../snippet/PartitionTable";
     import NewOrderBuyForm from "../snippet/NewOrderBuyForm";
     import NewOrderSellForm from "../snippet/NewOrderSellForm";
+    import DepositForm from "../snippet/DepositForm";
+    import WithdrawForm from "../snippet/WithdrawForm";
+    import TransferForm from "../snippet/TransferForm";
     export default {
         name: "dashboard-body",
         components: {
@@ -144,7 +150,10 @@
             CustomTable,
             PartitionTable,
             NewOrderBuyForm,
-            NewOrderSellForm
+            NewOrderSellForm,
+            DepositForm,
+            WithdrawForm,
+            TransferForm
         },
         data: function() {
             return {};
