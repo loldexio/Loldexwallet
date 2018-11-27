@@ -8,5 +8,6 @@ export default {
     depthChartData: [],
     tradeData: [],
     fundData: [],
-    orderData: []
+    orderData: [],
+    tradeList: []
 }

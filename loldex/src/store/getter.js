@@ -38,6 +38,10 @@ function getOrderData(state) {
     return state.orderData;
 }
 
+function getTradeList(state) {
+    return state.tradeList;
+}
+
 export default {
     getTradeTokenList,
     getLanguageList,
@@ -48,5 +52,6 @@ export default {
     getDepthChartData,
     getTradeData,
     getFundData,
-    getOrderData
+    getOrderData,
+    getTradeList
 }

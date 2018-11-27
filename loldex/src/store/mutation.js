@@ -30,5 +30,8 @@ export default {
     },
     [mType.FETCH_FUND_DATA]: (state, payload) => {
         state.fundData = payload;
+    },
+    [mType.FETCH_TRADE_LIST]: (state, payload) => {
+        state.tradeList = payload;
     }
 }

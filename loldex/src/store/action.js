@@ -41,6 +41,10 @@ async function fetchFundData({commit}, payload) {
     commit(mType.FETCH_FUND_DATA, dump.fundData);
 }
 
+async function fetchTradeList({commit}, payload) {
+    commit(mType.FETCH_TRADE_LIST, dump.tradeList);
+}
+
 export default {
     fetchTradeTokenList,
     fetchLanguageList,
@@ -51,5 +55,6 @@ export default {
     fetchDepthChartData,
     fetchTradeData,
     fetchOrderData,
-    fetchFundData
+    fetchFundData,
+    fetchTradeList
 }

@@ -109,6 +109,9 @@
             <div class="col-md-3 dashboard-body__col">
                 <div class="dashboard-body__item">
                     <panel :title="'Trades'">
+                        <custom-table
+                            :data="trade"
+                        ></custom-table>
                     </panel>
                 </div>
             </div>
@@ -227,6 +230,34 @@
                         note: "Note: ForkDelta will only show recent transactions."
                     }
                 }
+            },
+            trade() {
+                return {
+                    col: [
+                        {
+                            label: "DAI/ETH",
+                            prop: "ratio",
+                            class: (row) => {
+                                return {
+                                    "table__td--green": !!(row.type == "buy"),
+                                    "table__td--red": !!(row.type =="sell")
+                                }
+                            }
+                        },
+                        {
+                            label: "DAI",
+                            prop: "token"
+                        },
+                        {
+                            label: "ETH",
+                            prop: "eth",
+                            render: (row) => {
+                                return `${row.eth} <a href="#"><i class="fas fa-external-link-alt"></i></a>`;
+                            } 
+                        }
+                    ],
+                    row: this.$store.getters.getTradeList,
+                }
             }
 
         },
@@ -237,6 +268,7 @@
             await this.$store.dispatch("fetchTradeData");
             await this.$store.dispatch("fetchOrderData");
             await this.$store.dispatch("fetchFundData");
+            await this.$store.dispatch("fetchTradeList");
         }
     }
 </script>

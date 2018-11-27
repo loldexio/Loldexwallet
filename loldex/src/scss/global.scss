@@ -70,9 +70,22 @@ html {
     }
 }
 .table__row {
+    &:hover {
+        background-color: #1b2831;
+    }
     td {
         color: white;
         text-align: center;
+        
+        a {
+            color: white;
+        }
+        &.table__td--red {
+            color: red;
+        }
+        &.table__td--green {
+            color: green;
+        }
     }
 }
 
