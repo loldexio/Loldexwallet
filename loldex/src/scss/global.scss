@@ -98,6 +98,12 @@ html {
     }
 }
 
+@for $i from 0 through 100 {
+    .padding-#{$i} {
+        padding: #{$i}px;
+    }
+}
+    
 // custom bootstrap vue
 .tabs {
     display: flex;
@@ -183,5 +189,49 @@ input.form-control {
         outline: 0;
         -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
         box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+    }
+}
+
+form {
+    fieldset {
+        padding: 0;
+        border: none;
+        margin: 0;
+        margin-bottom: 15px;
+
+        label {
+            color: white;
+            font-size: 90%;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            text-align: right;
+        }
+    }
+}
+
+.btn {
+    flex: 1;
+    border: none;
+    border-radius: 1px;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 30px;
+    text-align: center;
+    cursor: pointer;
+    color: #fff;
+    user-select: none;
+    background-color: #3d84d6 !important;
+    transition: background-color 0.2s ease-in-out;
+
+    &.btn-success {
+        color: #fff;
+        background-color: #4da53c !important;
+    }
+    &.btn-danger {
+        background-color: #ff6939 !important;
+    }
+    &.btn--full-width {
+        width: 100%;
     }
 }

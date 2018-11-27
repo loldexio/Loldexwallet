@@ -37,8 +37,10 @@
                     <panel :title="'New Order'">
                         <b-tabs nav-wrapper-class="tab-header">
                             <b-tab title="Buy" active>
+                                <new-order-buy-form></new-order-buy-form>
                             </b-tab>
                             <b-tab title="Sell">
+                                <new-order-sell-form></new-order-sell-form>
                             </b-tab>
                         </b-tabs>
                     </panel>
@@ -129,6 +131,8 @@
     import TextBox from "../snippet/TextBox";
     import CustomTable from "../snippet/CustomTable";
     import PartitionTable from "../snippet/PartitionTable";
+    import NewOrderBuyForm from "../snippet/NewOrderBuyForm";
+    import NewOrderSellForm from "../snippet/NewOrderSellForm";
     export default {
         name: "dashboard-body",
         components: {
@@ -138,7 +142,9 @@
             DepthChart,
             TextBox,
             CustomTable,
-            PartitionTable
+            PartitionTable,
+            NewOrderBuyForm,
+            NewOrderSellForm
         },
         data: function() {
             return {};
@@ -332,7 +338,7 @@
 
         &.container-fluid,
         .row,
-        div[class*=col] {
+        div[class*=col].dashboard-body__col {
             margin: 0;
             padding: 0;
         }
