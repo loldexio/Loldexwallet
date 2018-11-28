@@ -77,7 +77,7 @@
 <style lang="scss">
     .header-dropdown {
         height: 100%;
-        position: relative;
+        position: relative;   
 
         .header-dropdown__button {
             height: 100%;
@@ -116,6 +116,10 @@
             border-radius: 4px;
             box-shadow: 0 6px 12px rgba(0,0,0,.175);
             font-size: 100%;
+
+            @media (max-width: $break-point) {
+                width: 100%;
+            }
 
             &.header-dropdown__menu--right {
                 left: unset;

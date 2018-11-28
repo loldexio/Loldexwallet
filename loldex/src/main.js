@@ -7,10 +7,13 @@ import BootstrapVue from 'bootstrap-vue';
 import VueGoogleChart from "vue-google-charts";
 import 'bootstrap-vue/dist/bootstrap-vue.css';
 import 'bootstrap/dist/css/bootstrap.css';
+import ECharts from 'vue-echarts/components/ECharts';
 
 Vue.use(BootstrapVue);
 
 Vue.use(VueGoogleChart);
+
+Vue.component('v-chart', ECharts)
 
 Vue.directive('click-away', VueClickaway.directive);
 

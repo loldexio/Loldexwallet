@@ -33,6 +33,10 @@
         .dashboard__body {
             height: calc(100% - #{$header-height});
             background-color: $body-background-color;
+
+            @media (max-width: $break-point) {
+                height: auto;        
+            }
         }
     }
 </style>
