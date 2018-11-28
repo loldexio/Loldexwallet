@@ -25,19 +25,19 @@
                     <tr class="table__row table__row--balance">
                         <td>
                             <b-form-input
-                                :type="form.amountToken.type"
+                                :type="form.amountToken && form.amountToken.type"
                                 v-model="form.amountToken.value"
-                                :required="form.amountToken.required"
-                                :placeholder="form.amountToken.placeholder"
+                                :required="form.amountToken && form.amountToken.required"
+                                :placeholder="form.amountToken && form.amountToken.placeholder"
                             >
                             </b-form-input>
                         </td>
                         <td>
                             <b-form-input
-                                :type="form.transferAddress.type"
+                                :type="form.transferAddress && form.transferAddress.type"
                                 v-model="form.transferAddress.value"
-                                :required="form.transferAddress.required"
-                                :placeholder="form.transferAddress.placeholder"
+                                :required="form.transferAddress && form.transferAddress.required"
+                                :placeholder="form.transferAddress && form.transferAddress.placeholder"
                             >
                             </b-form-input>
                         </td>
@@ -59,19 +59,19 @@
                     <tr class="table__row table__row--balance">
                         <td>
                             <b-form-input
-                                :type="form.amountEth.type"
+                                :type="form.amountEth && form.amountEth.type"
                                 v-model="form.amountEth.value"
-                                :required="form.amountEth.required"
-                                :placeholder="form.amountEth.placeholder"
+                                :required="form.amountEth && form.amountEth.required"
+                                :placeholder="form.amountEth && form.amountEth.placeholder"
                             >
                             </b-form-input>
                         </td>
                         <td>
                             <b-form-input
-                                :type="form.transferAddress.type"
+                                :type="form.transferAddress && form.transferAddress.type"
                                 v-model="form.transferAddress.value"
-                                :required="form.transferAddress.required"
-                                :placeholder="form.transferAddress.placeholder"
+                                :required="form.transferAddress && form.transferAddress.required"
+                                :placeholder="form.transferAddress && form.transferAddress.placeholder"
                             >
                             </b-form-input>
                         </td>
@@ -121,7 +121,17 @@
                         required: true
                     }
                 },
-                form: {}
+                form: {
+                    amountToken: {
+                        value: null
+                    },
+                    amountEth: {
+                        value: null
+                    },
+                    transferAddress: {
+                        value: null
+                    }
+                }
             }
         },
         mounted() {

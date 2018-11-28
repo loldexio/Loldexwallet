@@ -5,6 +5,8 @@ import store from './store/index';
 import VueClickaway from "vue-clickaway";
 import BootstrapVue from 'bootstrap-vue';
 import VueGoogleChart from "vue-google-charts";
+import 'bootstrap-vue/dist/bootstrap-vue.css';
+import 'bootstrap/dist/css/bootstrap.css';
 
 Vue.use(BootstrapVue);
 

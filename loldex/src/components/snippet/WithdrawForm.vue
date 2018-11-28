@@ -27,10 +27,10 @@
                             colspan="2"
                         >
                             <b-form-input
-                                :type="form.amountToken.type"
+                                :type="form.amountToken && form.amountToken.type"
                                 v-model="form.amountToken.value"
-                                :required="form.amountToken.required"
-                                :placeholder="form.amountToken.placeholder"
+                                :required="form.amountToken && form.amountToken.required"
+                                :placeholder="form.amountToken && form.amountToken.placeholder"
                             >
                             </b-form-input>
                         </td>
@@ -54,10 +54,10 @@
                             colspan="2"
                         >
                             <b-form-input
-                                :type="form.amountEth.type"
+                                :type="form.amountEth && form.amountEth.type"
                                 v-model="form.amountEth.value"
-                                :required="form.amountEth.required"
-                                :placeholder="form.amountEth.placeholder"
+                                :required="form.amountEth && form.amountEth.required"
+                                :placeholder="form.amountEth && form.amountEth.placeholder"
                             >
                             </b-form-input>
                         </td>
@@ -101,7 +101,14 @@
                         required: false
                     }
                 },
-                form: {}
+                form: {
+                    amountToken: {
+                        value: null
+                    },
+                    amountEth: {
+                        value: null
+                    }
+                }
             }
         },
         mounted() {
