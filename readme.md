@@ -1,3 +1,1 @@
-# Technology stack
-
-- Vuejs
+# Loldexweb
