@@ -52,18 +52,9 @@
             <div class="col-md-6 dashboard-body__col">
                 <div class="dashboard-body__item">
                     <panel :title="'Price Chart'">
-                        <b-tabs nav-wrapper-class="tab-header">
-                            <b-tab title="Price" active>
-                                <price-chart
-                                    :data="priceChart.price.data"
-                                ></price-chart>
-                            </b-tab>
-                            <b-tab title="Depth">
-                                <depth-chart
-                                    :data="priceChart.depth.data"
-                                ></depth-chart>
-                            </b-tab>
-                        </b-tabs>
+                        <price-chart
+                            :data="priceChart.price.data"
+                        ></price-chart>
                     </panel>
                 </div>
             </div>
@@ -106,9 +97,6 @@
                 return {
                     price: {
                         data: this.$store.getters.getPriceChartData
-                    },
-                    depth: {
-                        data: this.$store.getters.getDepthChartData
                     }
                 }
             },

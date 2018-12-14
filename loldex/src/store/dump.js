@@ -79,13 +79,7 @@ var dump = {
         ask: 0.011990000,
         value2: 143.241
     }],
-    priceChartData: [
-        ['Date', 'Price'],
-        [ new Date(2018, 11, 13), 0.13],
-        [ new Date(2018, 11, 14), 0.14],
-        [ new Date(2018, 11, 15), 0.15],
-        [ new Date(2018, 11, 16), 0.16],
-    ],
+    priceChartData: [],
     depthChartData: [
         ['Year', 'Sales', 'Expenses'],
         ['2013',  1000,      400],
