@@ -49,6 +49,11 @@ async function fetchOrderBookList({commit}, payload) {
     commit(mType.FETCH_ORDER_BOOK_LIST, dump.orderBookList);
 }
 
+async function setTheme({commit}, payload) {
+    localStorage.setItem("theme.style", payload);
+    commit(mType.SET_THEME, payload);
+}
+
 export default {
     fetchTradeTokenList,
     fetchLanguageList,
@@ -61,5 +66,6 @@ export default {
     fetchOrderData,
     fetchFundData,
     fetchTradeList,
-    fetchOrderBookList
+    fetchOrderBookList,
+    setTheme
 }

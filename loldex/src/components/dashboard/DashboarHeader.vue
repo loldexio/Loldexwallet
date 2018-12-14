@@ -35,6 +35,9 @@
         <li class="nav-menu__item">
           <header-dropdown :data="accountDropdown"></header-dropdown>
         </li>
+        <li class="nav-menu__item">
+          <header-toggle :data="themeToggle"></header-toggle>
+        </li>
       </ul>
     </div>
     <b-modal id="balance-modal" title="Balance" ok-only v-model="modal.balance">
@@ -86,6 +89,7 @@
 <script>
 import HeaderDropdown from "../snippet/HeaderDropdown";
 import HeaderButton from "../snippet/HeaderButton";
+import HeaderToggle from "../snippet/HeaderToggle";
 import Panel from "../snippet/Panel";
 import VolumeTable from "../snippet/VolumeTable";
 import TextBox from "../snippet/TextBox";
@@ -98,7 +102,8 @@ export default {
     Panel,
     VolumeTable,
     TextBox,
-    CustomTable
+    CustomTable,
+    HeaderToggle
   },
   data: function() {
     var self = this;
@@ -151,6 +156,20 @@ export default {
 		}
 	},
   computed: {
+    themeToggle() {
+      var self = this;
+      return [{
+          label: "Dark",
+          onActive: function() {
+            self.$store.dispatch("setTheme", "dark");
+          }
+        }, {
+          label: "Light",
+          onActive: function() {
+            self.$store.dispatch("setTheme", "light");
+          }
+      }]
+    },
     volume() {
       return {
         row: this.$store.getters.getVolumeList,

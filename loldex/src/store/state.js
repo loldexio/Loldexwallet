@@ -10,5 +10,8 @@ export default {
     fundData: [],
     orderData: [],
     tradeList: [],
-    orderBookList: []
+    orderBookList: [],
+    theme: {
+        style: "dark" || localStorage["theme.style"]
+    }
 }

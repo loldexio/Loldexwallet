@@ -46,6 +46,10 @@ function getOrderBookList(state) {
     return state.orderBookList;
 }
 
+function getTheme(state) {
+    return state.theme;
+}
+
 export default {
     getTradeTokenList,
     getLanguageList,
@@ -58,5 +62,6 @@ export default {
     getFundData,
     getOrderData,
     getTradeList,
-    getOrderBookList
+    getOrderBookList,
+    getTheme
 }

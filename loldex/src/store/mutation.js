@@ -36,5 +36,10 @@ export default {
     },
     [mType.FETCH_ORDER_BOOK_LIST]: (state, payload) => {
         state.orderBookList = payload;
+    },
+    [mType.SET_THEME]: (state, payload) => {
+        state.theme = {
+            style: payload
+        };
     }
 }
