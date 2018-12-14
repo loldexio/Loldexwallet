@@ -281,6 +281,19 @@ form {
 }
 
 .modal {
+    ::-webkit-scrollbar, .scroll::-webkit-scrollbar {
+        width: 5px;
+        height: 5px;
+    }
+    ::-webkit-scrollbar-thumb, .scroll::-webkit-scrollbar-thumb {
+        background-color: #233540;
+        border: 1px solid #233540;
+        transition: all 0.2s ease-out;
+    }
+    ::-webkit-scrollbar-track, .scroll::-webkit-scrollbar-track {
+        background: #15232c;
+    }
+    
     .modal-content {
         color: #ced2d5;
         background: #1e2b34;
@@ -300,6 +313,8 @@ form {
         .modal-body {
             color: #ced2d5;
             background: #1e2b34;
+            max-height: 600px;
+            overflow: auto;
         }
         .modal-footer {
             color: #ced2d5;
