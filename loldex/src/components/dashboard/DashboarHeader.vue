@@ -395,21 +395,6 @@ export default {
 			display: inline-block;
 		}
 	}
-  ::-webkit-scrollbar {
-    width: 5px;
-    height: 5px;
-  }
-  ::-webkit-scrollbar-track {
-    background: #fff;
-  }
-  ::-webkit-scrollbar-thumb {
-    background-color: #ccc;
-    border: 1px solid #ccc;
-    transition: all 0.2s ease-out;
-  }
-  ::-webkit-scrollbar-thumb:hover {
-    background-color: #aaa;
-  }
 
   .dashboard-header__logo {
     .logo {

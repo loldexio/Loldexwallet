@@ -12,6 +12,6 @@ export default {
     tradeList: [],
     orderBookList: [],
     theme: {
-        style: "dark" || localStorage["theme.style"]
+        style: localStorage["theme.style"] || "dark"
     }
 }

@@ -110,7 +110,7 @@
             left: 0;
             z-index: 1000;
             padding: 5px 0;
-            background-color: #fff;
+            background-color: $header-dropdown-menu-backgroun-color;
             background-clip: padding-box;
             border: 1px solid rgba(0,0,0,.15);
             border-radius: 4px;

@@ -197,6 +197,7 @@
         width: 100%;
         display: flex;
         align-items: stretch;
+        min-height: 500px;
 
         .price-chart__content {
             width: 100%;

@@ -182,19 +182,6 @@
         width: 100%;
         height: 100%;
 
-        ::-webkit-scrollbar, .scroll::-webkit-scrollbar {
-            width: 5px;
-            height: 5px;
-        }
-        ::-webkit-scrollbar-thumb, .scroll::-webkit-scrollbar-thumb {
-            background-color: #233540;
-            border: 1px solid #233540;
-            transition: all 0.2s ease-out;
-        }
-        ::-webkit-scrollbar-track, .scroll::-webkit-scrollbar-track {
-            background: #15232c;
-        }
-
         &.container-fluid,
         .row,
         div[class*=col].dashboard-body__col {
@@ -207,7 +194,7 @@
         }
         .dashboard-body__col {
             height: 100%; 
-            border-right: 2px solid #18252e;     
+            border-right: 2px solid $dashboard-body-col-border-color;     
             display: flex;
             flex-direction: column;
             justify-content: space-between;  

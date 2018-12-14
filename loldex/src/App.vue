@@ -1,12 +1,17 @@
 <template>
-  <div id="app">
+  <div id="app" :class="style">
     <router-view></router-view>
   </div>
 </template>
 
 <script>
   export default {
-    name: "app"   
+    name: "app",
+    data() {
+      return {
+        style: this.$store.getters.getTheme.style
+      }
+    }
   }
 </script>
 
