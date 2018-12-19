@@ -59,6 +59,68 @@
                 </div>
             </div>
         </div>
+        <b-modal id="buy-modal" title="Buy" v-model="modal.buy">
+            <form>
+                <div class="form-group">
+                    <label>Order</label>
+                    <div>10.617 VERI @ 0.142998336 VERI/ETH</div>
+                    <div>Expires in -22 blocks</div>
+                </div>
+                <div class="form-group">
+                    <label>Amount to buy (VERI)</label>
+                    <input type="text" class="form-control trn" placeholder="Amount" value="10.617">
+                </div>
+                <div class="form-group">
+                    <label>ETH</label>
+                    <input type="text" class="form-control trn" value="1.518" readonly>
+                </div>
+                <div class="form-group">
+                    <label>Fee (ETH)</label>
+                    <input type="text" class="form-control trn" value="0.005" readonly>
+                </div>
+                <div class="help-block small text-muted">
+                    Order ID: 0xa1fc55d45c6b5202697850b1fbd1d906789ab0a66d96c42c6e55eeee8bf435dc_sell
+                    <br>Offered by: 0x5510acc649bb8caac72602fa7b6b8b0cf5247ce6
+                    <br>Last updated: 2018-12-19T10:03:01
+                </div>
+            </form>
+            <div slot="modal-footer" class="w-100">
+                <b-btn size="sm" class="float-right" variant="primary" @click="modal.buy=false">
+                    Buy
+                </b-btn>
+            </div>
+        </b-modal>
+        <b-modal id="sell-modal" title="Sell" v-model="modal.sell">
+            <form>
+                <div class="form-group">
+                    <label>Order</label>
+                    <div>0.236 VERI @ 0.130344999 VERI/ETH</div>
+                    <div>Expires in 20 blocks</div>
+                </div>
+                <div class="form-group">
+                    <label>Amount to sell (VERI)</label>
+                    <input type="text" class="form-control trn" placeholder="Amount" value="0.236">
+                </div>
+                <div class="form-group">
+                    <label>ETH</label>
+                    <input type="text" class="form-control trn" value="0.031" readonly>
+                </div>
+                <div class="form-group">
+                    <label>Fee (VERI)</label>
+                    <input type="text" class="form-control trn" value="0.000" readonly>
+                </div>
+                <div class="help-block small text-muted">
+                    Order ID: 0x2c8622b993e18e124c526bc7a0cc1c950d903141f4f6f85d616cc0f1179275e2_buy
+                    <br>Offered by: 0x26e59016b5cccccc93b242f4267fb0e660399dad
+                    <br>Last updated: 2018-12-19T10:37:31
+                </div>
+            </form>
+            <div slot="modal-footer" class="w-100">
+                <b-btn size="sm" class="float-right" variant="primary" @click="modal.sell=false">
+                    Sell
+                </b-btn>
+            </div>
+        </b-modal>
     </div>
 </template>
 
@@ -90,7 +152,12 @@
             TransferForm
         },
         data: function() {
-            return {};
+            return {
+                modal: {
+                    sell: false,
+                    buy: false
+                }
+            };
         },
         computed: {
             priceChart() {
@@ -129,6 +196,7 @@
                 }
             },
             orderBook() {
+                var self = this;
                 return {
                     col: [
                         {
@@ -155,10 +223,10 @@
                         return !!(row.type == "sell");
                     },
                     topOnClick: (col, row) => {
-                        return alert("Buy")
+                        self.modal.buy =true;
                     },
                     bottomOnClick: (col, row) => {
-                        return alert("Sell")
+                        self.modal.sell =true;
                     }
                 }
             }

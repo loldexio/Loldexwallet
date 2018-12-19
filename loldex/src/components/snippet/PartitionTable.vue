@@ -3,7 +3,7 @@
         <div class="partition-table-wrapper">
             <table class="table table--collapse">
                 <tbody>
-                    <tr v-for="(r, index) of _data.top" :key="index" class="table__row table__row--partition" v-if="data.row.length">
+                    <tr v-for="(r, index) of _data.top" :key="'a' + index" class="table__row table__row--partition" v-if="data.row.length">
                         <td 
                             v-for="(h, index) of data.col" 
                             :key="index" 
@@ -25,7 +25,7 @@
                         >{{h.label}}</td>
                     </tr>
 
-                    <tr v-for="(r, index) of _data.bottom" :key="index" class="table__row table__row--partition" v-if="data.row.length">
+                    <tr v-for="(r, index) of _data.bottom" :key="'b' + index" class="table__row table__row--partition" v-if="data.row.length">
                         <td 
                             v-for="(h, index) of data.col" 
                             :key="index" 

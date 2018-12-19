@@ -14,9 +14,6 @@
       </ul>
 
       <ul class="nav-menu nav-menu--right">
-        <li class="nav-menu__item">
-          <header-button :data="aboutButton"></header-button>
-        </li>
 				<li class="nav-menu__item">
           <header-button :data="balanceButton"></header-button>
         </li>
@@ -83,6 +80,60 @@
     <b-modal id="volume-modal" title="Volume" ok-only v-model="modal.volume">
       <volume-table :data="volume"></volume-table>
     </b-modal>
+    <b-modal id="import-account-modal" title="Import account" v-model="modal.importAccount">
+        <form autocomplete="off">
+          <div class="form-group">
+            <label>Address</label>
+            <input type="text" class="form-control" placeholder="0x...">
+          </div>
+          <div class="form-group">
+            <label>Private key</label>
+            <input type="text" class="form-control" placeholder="0x...">
+          </div>
+        </form>
+        <div slot="modal-footer" class="w-100">
+           <b-btn size="sm" class="float-right ml-2" variant="primary" @click="modal.importAccount=false">
+              Import account
+            </b-btn>
+            <b-btn size="sm" class="float-right" variant="primary" @click="modal.importAccount=false">
+              Cancel
+            </b-btn>
+        </div>
+    </b-modal>
+    <b-modal id="ledger-instruction-modal" title="Ledger" hide-footer v-model="modal.ledgerInstruction">
+        <div class="ad">
+          <a href="https://www.ledgerwallet.com/r/be21?path=/products/ledger-nano-s" target="_blank">
+          <img src="@/assets/img/ledger.png" class="ledger-img w-100 mt-4 mb-4">
+          </a>
+        </div>
+        <h3>Instructions</h3>
+        <ol>
+          <li>Plug in your Ledger Nano S.</li>
+          <li>On the Ledger Nano S, open the Ethereum app.</li>
+          <li>On the Ledger Nano S, go to "Settings" and turn on "Browser" and "Contract" modes.</li>
+          <li>Refresh ForkDelta.</li>
+          <li>Your Ledger Nano S address will appear in the account dropdown automatically, with a green "Ledger" box next to it.</li>
+          <li>When you deposit, withdraw, place an order, or trade, approve the transaction using your Ledger Nano S.</li>
+        </ol>
+        <div slot="modal-footer" class="w-100">
+        </div>
+    </b-modal>
+    <b-modal id="gas-price-modal" title="Import account" v-model="modal.gasPrice">
+        <form>
+          <div class="form-group">
+            <label>Gas price (gwei)</label>
+            <input type="text" class="form-control" value="4">
+          </div>
+        </form>
+        <div slot="modal-footer" class="w-100">
+           <b-btn size="sm" class="float-right ml-2" variant="primary" @click="modal.gasPrice=false">
+              Set gas price
+            </b-btn>
+            <b-btn size="sm" class="float-right" variant="primary" @click="modal.gasPrice=false">
+              Cancel
+            </b-btn>
+        </div>
+    </b-modal>
   </div>
 </template>
 
@@ -108,16 +159,12 @@ export default {
   data: function() {
     var self = this;
     return {
-      aboutButton: {
-        label: "About ForkDelta",
-        preIcon: '<i class="fas fa-info-circle"></i>',
-        onClick() {
-          self.$router.push("/about");
-        }
-      },
       modal: {
         balance: false,
-        volume: false
+        volume: false,
+        importAccount: false,
+        ledgerInstruction: false,
+        gasPrice: false
 			},
 			toggle: false,
       balanceButton: {
@@ -171,10 +218,12 @@ export default {
       }]
     },
     volume() {
+      var self = this;
       return {
         row: this.$store.getters.getVolumeList,
         onClick: function(item, table) {
           alert(item.name);
+          self.modal.volume = false;
         }
       };
     },
@@ -267,6 +316,7 @@ export default {
       };
     },
     accountDropdown() {
+      var self = this;
       return {
         displayValue: "Select account",
         preIcon: '<i class="fas fa-user"></i>',
@@ -278,17 +328,31 @@ export default {
                 title: "New account"
               },
               {
-                title: "Import account"
+                title: "Import account",
+                onActive: function() {
+                  self.modal.importAccount = true;
+                }
               },
               {
-                title: "Ledger Nano S"
+                title: "Ledger Nano S",
+                onActive: function() {
+                  self.modal.ledgerInstruction = true;
+                }
               },
               {
-                title: "Gas price"
+                title: "Gas price",
+                onActive: function() {
+                  self.modal.gasPrice = true;
+                }
               }
             ],
             onSelect(item, dropdown) {
-              alert(item.title);
+              console.log(item);
+              if(typeof(item.onActive) != "function") {
+                alert(item.title);
+              } else {
+                item.onActive();
+              }
               dropdown.close();
             }
           }

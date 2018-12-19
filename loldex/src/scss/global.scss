@@ -250,7 +250,7 @@ form {
     th, td {
         border: none !important;
         font-weight: normal;
-        padding: 0 !important;
+        padding: 2px !important;
     }
 }
 .table--collapse {
@@ -354,6 +354,10 @@ form {
             background: #1e2b34;
             max-height: 600px;
             overflow: auto;
+
+            label {
+                font-weight: bold;
+            }
         }
         .modal-footer {
             color: #ced2d5;
@@ -363,4 +367,10 @@ form {
             text-align: right
         }
     }
+}
+
+// ----------- light theme -----------
+
+#app.light {
+    
 }
