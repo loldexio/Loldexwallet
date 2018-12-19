@@ -37,7 +37,7 @@
         </li>
       </ul>
     </div>
-    <b-modal id="balance-modal" title="Balance" ok-only v-model="modal.balance">
+    <b-modal id="balance-modal" title="Balance" ok-only v-model="modal.balance" modal-class="modal--expand">
 			<b-tabs nav-wrapper-class="tab-header">
 				<b-tab title="Important" active>
 					<text-box>
@@ -77,7 +77,7 @@
 				</b-tab>
 			</b-tabs>
     </b-modal>
-    <b-modal id="volume-modal" title="Volume" ok-only v-model="modal.volume">
+    <b-modal id="volume-modal" title="Volume" ok-only v-model="modal.volume" modal-class="modal--expand">
       <volume-table :data="volume"></volume-table>
     </b-modal>
     <b-modal id="import-account-modal" title="Import account" v-model="modal.importAccount">
@@ -274,7 +274,8 @@ export default {
               prop: "cancel"
             }
           ],
-          row: this.$store.getters.getOrderData
+          row: this.$store.getters.getOrderData,
+          note: "Note: ForkDelta will only show recent transactions."
         },
         fund: {
           col: [

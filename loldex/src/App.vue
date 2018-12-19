@@ -7,9 +7,12 @@
 <script>
   export default {
     name: "app",
-    data() {
-      return {
-        style: this.$store.getters.getTheme.style
+    computed: {
+      style() {
+        var theme = this.$store.getters.getTheme;
+        return {
+          [theme.style]: true
+        };
       }
     }
   }

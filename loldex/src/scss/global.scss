@@ -41,7 +41,6 @@ $text-box-content-color: #fff;
 $text-box-link-color: #ccc;
 $text-box-font-size: 90%;
 
-
 // ----------- scss -----------
 .verticle-center {
     display: flex;
@@ -125,6 +124,7 @@ html {
             justify-content: space-between;
             align-items: stretch;
             border: none;
+            overflow: hidden;
 
             .nav-item {
                 width: 100%;
@@ -243,6 +243,10 @@ form {
     &.btn-primary {
         background-color: #3d84d6 !important;
     }
+    &:hover, 
+    &:focus {
+        box-shadow: none !important;
+    }
 }
 
 .table {
@@ -332,6 +336,14 @@ form {
     ::-webkit-scrollbar-track, .scroll::-webkit-scrollbar-track {
         background: #15232c;
     }
+
+    &.modal--expand {
+        .modal-content {
+            .modal-body {
+                padding: 0 !important;
+            }
+        }
+    }
     
     .modal-content {
         color: #ced2d5;
@@ -347,6 +359,13 @@ form {
                 opacity: 0.5;
                 transition: color 0.2s ease-in-out;
                 font-size: 21px;
+
+                &:hover,
+                &:focus {
+                    color: inherit;
+                    outline: none;
+                    box-shadow: none;
+                }
             }
         }
         .modal-body {
@@ -371,6 +390,208 @@ form {
 
 // ----------- light theme -----------
 
+$light-color-1: #585e63;
+$light-color-2: #3b4048;
+$light-color-3: #36383e;
+$light-color-4: #979da9;
+$light-color-5: #f1f5f8;
+$light-color-6: #d3dce2;
+$light-color-7: #e8ecf3;
+$light-color-8: #ff7700;
+
+
 #app.light {
+    ::-webkit-scrollbar-thumb {
+        border: 0px none #ffffff;
+        border-radius: 31px;
+        background: $light-color-4;
+    }
+
+    ::-webkit-scrollbar-track {
+        border: 0px none #ffffff;
+        border-radius: 50px;
+        background: $light-color-5;
+    }
+
+    .dashboard {
+        .dashboard__header {
+            .dashboard-header {
+                z-index: 1000;
+                border: none;
+                box-shadow: 0px 0px 5px 0px #00000073;
+            }
+        }
+        .dashboard__body {
+            background-color: $light-color-5;
+
+            .dashboard-body {
+                .dashboard-body__col {
+                    border-color: $light-color-7;
+                }
+            }
+        }
+    }
+
+    .panel {
+        border-bottom: 1px solid $light-color-7;
+        .panel__header {
+            color: $light-color-1;
+            background-color: $light-color-6;
+            border-bottom: none;
+        }
+    }
+
+    .tabs {
+        .tab-header {
+            border: none;
+            .nav.nav-tabs {
+                .nav-item {
+                    a {
+                        background-color: #f9f9f9;
+                        color: #66686b;
+                        border-bottom: 2px solid rgba(14, 14, 14, 0.1);
+
+                        &.active {
+                            color: $light-color-8;
+                            border-bottom: 2px solid $light-color-8 !important;
+                        }
+
+                        &:hover{
+                            border: none;
+                            border-bottom: 2px solid $light-color-8 !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .table__head {
+        border-color: $light-color-2;
     
+        th, td {
+            color: $light-color-2;
+            text-align: center;
+        }
+    }
+    .table__row {
+        td {
+            color: $light-color-2;
+            text-align: center;
+    
+            a {
+                color: $light-color-2;
+            }
+            &.table__td--red {
+                color: red;
+            }
+            &.table__td--green {
+                color: green;
+            }
+        }
+        &:hover {
+            background-color: $light-color-6;
+        }
+    }
+
+    input.form-control {
+        border: 1px solid #e1e3e6;
+        color: $light-color-2;
+        background-color: #fff;
+    
+        &:focus,
+        &:hover {
+            border-color: #ccc;
+            outline: 0;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(106, 108, 110, 0.6);
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(106, 108, 110, 0.6);
+        }
+        &:disabled, 
+        &[readonly] {
+            background-color: #ddd;
+        }
+    }
+    form {
+        fieldset {
+            label {
+                color: $light-color-2;
+            }
+        }
+    }
+
+    .btn {
+        background-color: $light-color-8 !important;
+        border: none;
+        border-radius: 3px !important;
+    
+        &.btn-success {
+            color: #fff;
+            background-color: #2bab3f !important;
+        }
+        &.btn-danger {
+            background-color: #da4830 !important;
+        }
+        &.btn--full-width {
+            width: 100%;
+        }
+        &.btn-primary {
+            background-color: $light-color-8 !important;
+        }
+    }
+
+    .modal {        
+        .modal-content {
+            color: #000;
+            background: #fff !important;
+    
+            .modal-header {
+                color: #000;
+                background: #fff;
+                border-bottom: 1px solid #e9ecef;
+    
+                .close {
+                    color: #fff;
+                }
+            }
+            .modal-body {
+                color: #000;
+                background: #fff;
+    
+                label {
+                    font-weight: bold;
+                }
+            }
+            .modal-footer {
+                color: #000;
+                background: #fff;
+                border-top: 1px solid #e9ecef;
+            }
+        }
+    }
+
+    .text-box {
+        .text-box__header {
+            color: $text-box-header-color; 
+        }
+
+        .text-box__content {
+            color: $light-color-2;
+        }
+
+        .text-box__link {
+            color: #007bff;
+        }
+    }
+
+    .volume-table {
+        .volume-table__content {
+            .volume-table__item {
+                color: $light-color-2;
+
+                &:hover {
+                    background-color: $light-color-6;
+                }
+            }
+        }
+    }
 }

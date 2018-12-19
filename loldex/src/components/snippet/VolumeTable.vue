@@ -75,6 +75,10 @@
 
         .volume-table__search {
             flex: 0 0 36px;
+
+            input {
+                border-radius: 0 !important;
+            }
         }
 
         .volume-table__content {
