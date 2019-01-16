@@ -462,6 +462,7 @@ export default {
 	}
 
   .dashboard-header__logo {
+    padding: 5px;
     .logo {
       height: 100%;
     }
