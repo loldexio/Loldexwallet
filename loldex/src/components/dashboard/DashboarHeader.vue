@@ -7,12 +7,6 @@
 			<header-button :data="toggleButton"></header-button>
 		</div>
     <div class="dashboard-header__content" :class="{'dashboard-header__content--show': toggle, 'dashboard-header__content--hide': !toggle}">
-      <ul class="nav-menu nav-menu--left">
-        <li class="nav-menu__item">
-          <header-dropdown :data="tradeTokenDropdown"></header-dropdown>
-        </li>
-      </ul>
-
       <ul class="nav-menu nav-menu--right">
 				<li class="nav-menu__item">
           <header-button :data="balanceButton"></header-button>
@@ -45,25 +39,25 @@
 						<div class="text-box__content">
 							The URL of this project is
 							<a
-								href="https://forkdelta.app"
+								href="https://loldex.io/"
 								class="text-box__link"
-							>forkdelta.app</a>. Bookmark it once and use the bookmark.
+							>loldex.io</a>. Bookmark it once and use the bookmark.
 						</div>
 						<div class="text-box__content">
 							This interface is a fork of
 							<a
 								href="https://etherdelta.com"
 								class="text-box__link"
-							>EtherDelta</a> with a ton of improvements including a much faster order processing system. It interacts with ForkDelta's revamped API and EtherDelta's original contract.
+							>EtherDelta</a> with a ton of improvements including a much faster order processing system. It interacts with LoLDEX's revamped API and EtherDelta's original contract.
 						</div>
 						<div class="text-box__header">How to Start Trading</div>
 						<div
 							class="text-box__content"
-						>Use the Deposit form (upper left) to put your funds (ETH and tokens) on the exchange. Do not send your tokens directly to the smart contract, or they will be lost and unrecoverable. ForkDelta cannot help you with funds incorrectly deposited to the trading smart contract.</div>
-						<div class="text-box__header">ForkDelta Disclaimer</div>
+						>Use the Deposit form (upper left) to put your funds (ETH and tokens) on the exchange. Do not send your tokens directly to the smart contract, or they will be lost and unrecoverable. LoLDEX cannot help you with funds incorrectly deposited to the trading smart contract.</div>
+						<div class="text-box__header">LoLDEX Disclaimer</div>
 						<div
 							class="text-box__content"
-						>ForkDelta is a decentralized trading platform that lets you trade Ether and Ethereum-based tokens directly with other users. You are responsible for your own account, funds, and private keys. You are responsible for your own trading decisions, and the details and mechanics of the tokens you trade. ForkDelta is not responsible for your decisions, actions, or losses that result from using ForkDelta. ForkDelta makes no guarantee about the tokens that you trade using ForkDelta. ForkDelta does not hold your funds and does not offer refunds. While the information contained on ForkDelta is periodically updated, no guarantee is given that the information provided on ForkDelta is correct, complete, or up-to-date. By using ForkDelta, you acknowledge this and agree to these terms.</div>
+						>LoLDEX is a decentralized trading platform that lets you trade Ether and Ethereum-based tokens directly with other users. You are responsible for your own account, funds, and private keys. You are responsible for your own trading decisions, and the details and mechanics of the tokens you trade. LoLDEX is not responsible for your decisions, actions, or losses that result from using LoLDEX. LoLDEX makes no guarantee about the tokens that you trade using LoLDEX. LoLDEX does not hold your funds and does not offer refunds. While the information contained on LoLDEX is periodically updated, no guarantee is given that the information provided on LoLDEX is correct, complete, or up-to-date. By using LoLDEX, you acknowledge this and agree to these terms.</div>
 					</text-box>
 				</b-tab>
 				<b-tab title="Trades">
@@ -111,7 +105,7 @@
           <li>Plug in your Ledger Nano S.</li>
           <li>On the Ledger Nano S, open the Ethereum app.</li>
           <li>On the Ledger Nano S, go to "Settings" and turn on "Browser" and "Contract" modes.</li>
-          <li>Refresh ForkDelta.</li>
+          <li>Refresh LoLDEX.</li>
           <li>Your Ledger Nano S address will appear in the account dropdown automatically, with a green "Ledger" box next to it.</li>
           <li>When you deposit, withdraw, place an order, or trade, approve the transaction using your Ledger Nano S.</li>
         </ol>
@@ -253,7 +247,7 @@ export default {
             }
           ],
           row: this.$store.getters.getTradeData,
-          note: "Note: ForkDelta will only show recent transactions."
+          note: "Note: LoLDEX will only show recent transactions."
         },
         order: {
           col: [
@@ -275,7 +269,7 @@ export default {
             }
           ],
           row: this.$store.getters.getOrderData,
-          note: "Note: ForkDelta will only show recent transactions."
+          note: "Note: LoLDEX will only show recent transactions."
         },
         fund: {
           col: [
@@ -297,23 +291,8 @@ export default {
             }
           ],
           row: this.$store.getters.getFundData,
-          note: "Note: ForkDelta will only show recent transactions."
+          note: "Note: LoLDEX will only show recent transactions."
         }
-      };
-    },
-    tradeTokenDropdown() {
-      return {
-        displayValue: "Token",
-        buttonBigSize: true,
-        group: [
-          {
-            option: this.$store.getters.getTradeTokenList,
-            onSelect(item, dropdown) {
-              dropdown.label = item.value;
-              dropdown.close();
-            }
-          }
-        ]
       };
     },
     accountDropdown() {
@@ -433,7 +412,6 @@ export default {
     }
   },
   mounted: async function() {
-    await this.$store.dispatch("fetchTradeTokenList");
     await this.$store.dispatch("fetchLanguageList");
     await this.$store.dispatch("fetchSmartContract");
     await this.$store.dispatch("fetchTokenList");

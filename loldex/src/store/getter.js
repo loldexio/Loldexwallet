@@ -1,7 +1,3 @@
-function getTradeTokenList(state) {
-    return state.tradeTokenList;
-}
-
 function getLanguageList(state) {
     return state.languageList;
 }
@@ -51,7 +47,6 @@ function getTheme(state) {
 }
 
 export default {
-    getTradeTokenList,
     getLanguageList,
     getSmartContractList,
     getTokenList,

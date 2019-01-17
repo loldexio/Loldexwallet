@@ -84,7 +84,7 @@
                 col: [
                     {label: "Token"},
                     {label: "Wallet"},
-                    {label: "ForkDelta"},
+                    {label: "LoLDEX"},
                 ],
                 note: "Make sure DAI is the token you actually want to trade. Multiple tokens can share the same name.",
                 defautForm: {
