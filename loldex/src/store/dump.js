@@ -2,9 +2,6 @@ var dump = {
     languageList: [{
         title: "English",
         value: "en"
-    }, {
-        title: "Frqncais",
-        value: "fa"
     }],
     smartContract: [{
         title: "0x8d12a197cb... (Deployed 02/09/2017 -- THE CURRENT SMART CONTRACT)",
